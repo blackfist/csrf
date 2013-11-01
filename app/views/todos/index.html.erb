@@ -1,24 +1,28 @@
-<h1>Todo Items for <%= @user.email %></h1>
+<h1>Shit You Need to Do</h1>
 
 <table>
   <thead>
     <tr>
       <th>Due Date</th>
       <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Actions</th>
+
     </tr>
   </thead>
 
   <tbody>
     <% @todos.each do |todo| %>
       <tr>
-        <td><%= todo.due_date %></td>
+        <td><%= todo.due_date.strftime('%A %B %e, %Y') %></td>
         <td><%= todo.text %></td>
-        <td><%= link_to 'Show', todo %></td>
-        <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to(edit_todo_path(todo)) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+          <%= link_to(todo, method: :delete, data: { confirm: 'Are you sure?' }) do %>
+              <span class="glyphicon glyphicon-trash"></span>
+          <% end %></td>
+
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +30,7 @@
 
 <br>
 
-<%= link_to 'New Todo', new_todo_path %>
+<%= link_to(new_todo_path) do %>
+  <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> New TODO</button>
+<% end %>
+
