@@ -28,13 +28,12 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Home</a></li>
               <% if user_signed_in? %>
-                <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+                <li><%= link_to 'Logout '+current_user.email, destroy_user_session_path, :method => :delete %></li>
               <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
- 
     <div class="container">
       <%= yield %>
     </div>
