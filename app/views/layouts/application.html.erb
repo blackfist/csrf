@@ -7,8 +7,13 @@
     <meta name="description" content="This is a sample app with a CSRF vulnerability">
     <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  
-    <%= csrf_meta_tags %>
+    <% if ENV.has_key?('CSRF') %>
+      <% if ENV['CSRF'].downcase != 'no' %>
+        <%= csrf_meta_tags %>
+      <% end %>
+    <% else %>
+      <%= csrf_meta_tags %>
+    <% end %>
   </head>
   <body>
     <!--[if lt IE 7]>
