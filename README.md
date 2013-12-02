@@ -1,4 +1,4 @@
-== CSRF Demo App
+## CSRF Demo App
 
 This is a simple application to demonstrate how Rails implements Cross Site Request Forgery. The app itself is just a
 list of things that users need to do along with some authentication that allows users to log in and add new items. 
@@ -18,7 +18,7 @@ from another domain.
 One interesting thing is to look at the generated html code for http://localhost:3000/todos/new and see how it changes based on whether
 or not the environment variable CSRF is set to no.
 
-== Setup
+## Setup
 This is a really simple Rails app, written in Rails 4. 
 1. Git clone to some folder
 2. Go into that folder and do `bundle install`
@@ -28,7 +28,7 @@ This is a really simple Rails app, written in Rails 4.
 You should be able to connect to http://localhost:3000 and see the app. 
 A single user is created for you with username admin@this.com and password adminadmin.
 
-== Demonstration
+## Demonstration
 A rails app normally includes CSRF protection right out of the box. To disable the CSRF protection you can set an environment variable
 called CSRF and set the value to no.
 
