@@ -20,6 +20,7 @@ or not the environment variable CSRF is set to no.
 
 ## Setup
 This is a really simple Rails app, written in Rails 4. 
+
 1. Git clone to some folder
 2. Go into that folder and do `bundle install`
 3. Then do `rake db:setup`
