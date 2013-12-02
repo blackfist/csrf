@@ -1,6 +1,22 @@
 == CSRF Demo App
 
-When it is done, this app will demonstrate how CSRF protection in rails works. When it's done.
+This is a simple application to demonstrate how Rails implements Cross Site Request Forgery. The app itself is just a
+list of things that users need to do along with some authentication that allows users to log in and add new items. 
+When run like a normal app using `rails server` the normal out-of-the-box CSRF protections are in place. However, 
+if an environment variable called CSRF is set to no `export CSRF="no"` then when the server is run the CSRF protection 
+will not be in place.
+
+To help demonstrate the functionality of the CSRF protection, a sample malicous link is included in a file called public/sample.html.
+There are 3 ways you can use this to demonstrate the CSRF protection
+
+1. Copy the code onto another domain that you control and access the page.
+2. Access the page from the rails app by going to http://localhost:3000/sample.html. If you do that, you wont really be doing *Cross Site*
+request forgery though.
+3. Use the simple python script, malicious.py, to serve the script up on another port which is basically the same as doing it
+from another domain.
+
+One interesting thing is to look at the generated html code for http://localhost:3000/todos/new and see how it changes based on whether
+or not the environment variable CSRF is set to no.
 
 == Setup
 This is a really simple Rails app, written in Rails 4. 
